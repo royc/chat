@@ -17,4 +17,9 @@ io.on('connection', function (socket) {
   socket.on('add user', function (username) {
     socket.username = username;
   });
+
+  socket.on('message', function (data) {
+    let message = new Date().toLocaleTimeString() + " " + socket.username + " : " + data;
+    io.emit('new message', message);
+  });
 });

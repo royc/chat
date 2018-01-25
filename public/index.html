@@ -5,13 +5,18 @@
   <title>Demo socket.io and vue.js</title>
 </head>
 <body>
-    <div id="app" >
-      <ul v-show="showNameArea">
-        <h3 class="title">What's your nickname?</h3>
-        <input v-model="name" placeholder="input name">
-        <button v-on:click=setName>name</button>
-      </ul>
-    </div>
+  <div id="app" >
+    <ul v-show="showNameArea">
+      <h3 class="title">What's your nickname?</h3>
+      <input v-model="name" placeholder="input name">
+      <button v-on:click=setName>name</button>
+    </ul>
+    <ul v-show="showChatArea">
+      <input v-model="message" placeholder="send message">
+      <button v-on:click=sendMessage>message</button>
+      <span v-html="HTMLcontent"></span>
+    </ul>
+  </div>
   <script src="/socket.io/socket.io.js"></script>
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
   <script src="client.js"></script>
